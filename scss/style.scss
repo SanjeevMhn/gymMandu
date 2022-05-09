@@ -1,0 +1,36 @@
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./reset.scss";
+a{
+    text-decoration: none;
+}
+.nav-item{
+    &:hover{
+        background-color: #000;
+    }
+    &:not(:first-child){
+        margin-left: 0.75rem;
+    }
+}
+
+.active{
+    background-color: #000;
+}
+
+.nav-link{
+    text-decoration: none;
+    color: #fff;
+    &:hover{
+        color: #fff;
+    }
+}
+
+.underline{
+    text-decoration: underline;
+}
+
+button[data-button="reset"]{
+    outline: none;
+    background-color: transparent;
+    border: none;
+    border-color: transparent;
+}
