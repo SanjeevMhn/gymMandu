@@ -1,7 +1,7 @@
-<?php include_once "../include/navigation.php"; ?>
-<?php
-
+<?php 
     session_start();
+    include_once "../include/navigation.php"; ?>
+<?php
 
     $user_name = '';
     $user_email = '';
@@ -14,6 +14,7 @@
     $user_password_err = '';
     $user_contact_err = '';
     $user_address_err = '';
+    $user_login_err = '';
 
     if(isset($_POST['submit'])){
         if(empty($_POST['name'])){
@@ -64,12 +65,11 @@
 
         $user = new User($pdo);
         $result = $user->insertUserData($userData);
-        
-        if($result){
-            $_SESSION["status"] = 'Successfully Registered';
-            $_SESSION["user_name"] = $user_name;
-            $_SESSION["user_email"] = $user_email;
-            header('Location:/pages/dashboard.php',true);
+        if(!$result){
+            $user_login_err = "Email Already in use";
+        }else{
+            $_SESSION['status'] = "Registration Success";
+            header("Location:/pages/login.php",true);
             exit(0);
         }
     }
@@ -89,6 +89,13 @@
         <h1 class="fs-1">Register Page</h1>
 
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" class="register-form" method="post" >
+            <?php
+                if($user_login_err){
+            ?>
+                <span class="alert-danger fs-5">
+                    <?php echo $user_login_err; ?>
+                </span>
+            <?php } ?>
             <div class="mb-3">
                 <label for="name">Name*</label>
                 <input type="text" name="name" id="" class="form-control <?php if($user_name_err) echo "is-invalid" ?>" placeholder="Your Name">

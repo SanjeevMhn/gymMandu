@@ -2,7 +2,7 @@
     session_start();
     include_once "../include/header.php";
 
-    if($_SESSION["user_email"] == ''){
+    if($_SESSION['user_email'] == ''){
         header('Location:/index.php',true);
         exit(0);
     }
@@ -10,7 +10,7 @@
     if(isset($_POST['logout'])){
         session_destroy();
         session_unset();
-        header('Location:/index.php',true);
+        header('Location: /pages/login.php',true);
         exit(0);
     }
 ?>
@@ -36,7 +36,7 @@
         </div>
         <div class="content-container ms-3 col-8 p-4 bg-dark text-light rounded-3 flex-grow-1">
             <h2 class="fs-1">
-                Hello and welcome, <?php echo $_SESSION["user_name"]; ?>
+                Hello and welcome, <?php echo $_SESSION['user_name']; ?>
             </h2>
         </div>
         
