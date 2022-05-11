@@ -14,11 +14,11 @@
 
 **Technology used**
 1. Frontend
-	i. HTML,CSS,javascript
-	ii. Bootstrap, jquery
+	- HTML,CSS,javascript
+	- Bootstrap, jquery
 
 2. Backend
-	i. PHP and Mysql
+	- PHP and Mysql
 
 **Server**: XAMPP 
 
