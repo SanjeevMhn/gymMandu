@@ -27,6 +27,7 @@ function styles(){
     .on('error',sass.logError)
     .pipe(sourcemaps.init())
     .pipe(postcss([autoprefixer()]))
+    .pipe(gulp.dest(paths.styles.dest))
     .pipe(postcss([css()]))
     .pipe(rename({
         suffix: ".min"

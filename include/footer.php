@@ -5,7 +5,7 @@
             </h2>
             <div class="navigation">
                 <h4 class="header-text">Navigation</h4>
-                <ul class="nav-list list-unstyled p-0 m-0">
+                <ul class="nav-list list-unstyled">
                     <li class="nav-item">
                         <a href="#" class="nav-link">Home</a></li>
                     <li class="nav-item">

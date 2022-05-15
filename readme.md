@@ -1,15 +1,15 @@
 **Project Prototype_one**
 
-# Project Topic: Gym Management System
+# Project Topic: Fitness Tracker App
 
 **Project Description**
-1. Allows gym members to register and select their workout type, duration, frequency, time table,
-2. Allows users to select a personal trainer (optional)
-3. Customize workouts (personal trainer create workouts if selected)
-4. Get gym related bills
-5. Get notification on exclusive offers sent by the Gym
-6. Buying gym gear 
-7. Allows the admin to see the number of gym members, personal trainers, attendance, gym shop sales details,add or remove gym member
+	- Workout app, where can track their overall workouts and record their daily food intake and workout activites.
+	- Users can sign up for free and use the app completely for free 
+	- Paid options will include, personal trainer subscription, meal preparation guide, dietician consulting, ebooks. (seperate shop option for this )
+	- Users can document their progress and generate chart, tables which better help vizualize their current state
+	- Users can also share their personal workout routine with other users
+	- Users can also share their personal meal preparations and transformation pics.
+	- The app will also notify users on exclusive deals such as sales, etc
 
 
 **Technology used**
