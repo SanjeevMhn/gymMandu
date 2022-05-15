@@ -16,17 +16,25 @@
     $user_address_err = '';
     $user_login_err = '';
 
+    $userData = [];
+
     if(isset($_POST['submit'])){
         if(empty($_POST['name'])){
             $user_name_err = "Name is required";
         }else{
             $user_name = test_input($_POST['name']);
+            $userData = [
+                "user_name" => $user_name,
+            ];
         }
 
         if(empty($_POST['email'])){
             $user_email_err = "Email is required";
         }else{
             $user_email = test_input($_POST['email']);
+            $userData += [
+                "user_email" => $user_email,
+            ];
         }
 
 
@@ -37,40 +45,41 @@
             $user_password_err = "The passwords don't match!";
         }else{
             $user_password = password_hash($_POST['password'],PASSWORD_DEFAULT);
+            $userData += [
+                "user_password" => $user_password,
+            ];
         }
 
         if(empty($_POST['contact'])){
             $user_contact_err = "Contact is required";
         }else{
             $user_contact = test_input($_POST['contact']);
+            $userData += [
+                "user_contact" => $user_contact,
+            ];
         }
 
         if(empty($_POST['address'])){
             $user_address_err = "Address is required";
         }else{
             $user_address = test_input($_POST['address']);
+            $userData += [
+                "user_address" => $user_address,
+            ];
         }
-
-
-        $userData = [
-            "user_name" => $user_name,
-            "user_email" => $user_email,
-            "user_password" => $user_password,
-            "user_contact" => $user_contact,
-            "user_address" => $user_address
-        ];
-
+       
         require_once "../config/database.php";
         require_once "../classes/User.php";
-
-        $user = new User($pdo);
-        $result = $user->insertUserData($userData);
-        if(!$result){
-            $user_login_err = "Email Already in use";
-        }else{
-            $_SESSION['status'] = "Registration Success";
-            header("Location:/pages/login.php",true);
-            exit(0);
+        if(!empty($userData)){
+            $user = new User($pdo);
+            $result = $user->insertUserData($userData);
+            if(!$result){
+                $user_login_err = "Email Already in use";
+            }else{
+                $_SESSION['status'] = "Registration Success";
+                header("Location:/pages/login.php",true);
+                exit(0);
+            }
         }
     }
 

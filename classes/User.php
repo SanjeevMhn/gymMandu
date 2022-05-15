@@ -57,6 +57,7 @@
                 }else{
                     return '';
                 }
+                $this->conn = null;
             }catch(PDOException $ex){
                 echo $ex->getMessage();
             }
