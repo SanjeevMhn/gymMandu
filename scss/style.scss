@@ -18,11 +18,17 @@ a{
 
 .active{
     background-color: #000;
+    a{
+        color: #fff;
+        &:hover{
+            color: #fff;
+        }
+    }
 }
 
 .nav-link{
     text-decoration: none;
-    color: #fff;
+    color: #fff!important;
     &:hover{
         color: #fff;
     }

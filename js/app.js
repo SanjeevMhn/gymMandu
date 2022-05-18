@@ -13,11 +13,11 @@ $(function(){
         case '/pages/login.php':
             navMenuItems[4].classList.add('active');
         break;
-        case '/pages/dashboard.php':
-            sidenavItems[0].classList.add('active');
-        break;
-        case '/pages/workouts.php':
-            sidenavItems[1].classList.add('active');
-        break;
+        // case '/pages/dashboard.php':
+        //     sidenavItems[0].classList.add('active');
+        // break;
+        // case '/pages/workouts.php':
+        //     sidenavItems[1].classList.add('active');
+        // break;
     }
 })
