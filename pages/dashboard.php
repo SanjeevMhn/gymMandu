@@ -37,6 +37,7 @@
         contentContainer.load("user-dashboard.php");
 
         let sideMenu = $('.side-nav .nav-list .nav-link');
+        console.log(sideMenu[0].parentElement.classList.add('active'));
         sideMenu.click(function(){
             sideMenu.parent().removeClass("active");
             let nav = $(this).html().toLowerCase();
