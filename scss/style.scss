@@ -5,6 +5,9 @@ a{
     text-decoration: none;
 }
 .nav-item{
+    &:not(:first-child){
+        margin-top: 0.75rem!important;
+    }
     &:hover{
         background-color: #000;
     }

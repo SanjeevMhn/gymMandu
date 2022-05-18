@@ -6,7 +6,7 @@
     $user = 'root';
     $password = '';
     $charset = 'utf8';
-    $port = 3307;
+    $port = 3306;
 
     $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=$charset";
 

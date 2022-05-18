@@ -13,34 +13,23 @@
         header('Location: /pages/login.php',true);
         exit(0);
     }
+
+    if(isset($_GET['q'])){
+        if($_GET['q'] == 'workout'){
+            header('Location: /pages/workouts.php',true);
+            exit(0);
+        }
+    }
 ?>
-    <div class="container-fluid py-5 mx-auto row vh-100">
-        <div class="side-nav bg-dark col-3 px-4 py-5 m-0 h-100 rounded-3">
-            <h2 class="header-text fs-2 text-light">Dashboard</h2>
-            <ul class="nav-list list-unstyled p-0 m-0 mt-4">
-                <li class="nav-item m-0">
-                    <a href="#" class="nav-link fs-4">Workouts</a>
-                </li>
-                <li class="nav-item m-0">
-                    <a href="#" class="nav-link fs-4">Notifications</a>
-                </li>
-                <li class="nav-item m-0">
-                    <a href="#" class="nav-link fs-4">Shop</a>
-                </li>
-                <li class="nav-item m-0">
-                    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-                        <button type="submit" class="nav-link fs-4" name="logout" data-button="reset">Log out</button>
-                    </form>
-                </li>
-            </ul>
-        </div>
-        <div class="content-container ms-3 col-8 p-4 bg-dark text-light rounded-3 flex-grow-1">
+    <div class="container-fluid py-5 mx-auto row row-cols-2 vh-100">
+        <?php include_once "./sidenav.php" ?> 
+        <div class="content-container ms-3 p-4 bg-dark text-light rounded-3 flex-grow-1">
             <h2 class="fs-1">
                 Hello and welcome, <?php echo $_SESSION['user_name']; ?>
             </h2>
             <ul class="user-tasks list-unstyled fs-4 row row-cols-lg-4 row-cols-md-2 row-cols-1 justify-content-center">
                 <li class="user-tasks__item">
-                    <a href="#" class="task-link">
+                    <a href="?q=workout" class="task-link">
                         <div class="icon-container">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
                                 <path d="M104 96h-48C42.75 96 32 106.8 32 120V224C14.33 224 0 238.3 0 256c0 17.67 14.33 32 31.1 32L32 392C32 405.3 42.75 416 56 416h48C117.3 416 128 405.3 128 392v-272C128 106.8 117.3 96 104 96zM456 32h-48C394.8 32 384 42.75 384 56V224H256V56C256 42.75 245.3 32 232 32h-48C170.8 32 160 42.75 160 56v400C160 469.3 170.8 480 184 480h48C245.3 480 256 469.3 256 456V288h128v168c0 13.25 10.75 24 24 24h48c13.25 0 24-10.75 24-24V56C480 42.75 469.3 32 456 32zM608 224V120C608 106.8 597.3 96 584 96h-48C522.8 96 512 106.8 512 120v272c0 13.25 10.75 24 24 24h48c13.25 0 24-10.75 24-24V288c17.67 0 32-14.33 32-32C640 238.3 625.7 224 608 224z"/>
